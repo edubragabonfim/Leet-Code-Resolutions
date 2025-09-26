@@ -4,7 +4,7 @@ Este repositório é o meu espaço pessoal para armazenar todas as resoluções 
 O objetivo é manter um histórico de evolução, aprendizado e boas práticas de programação.  
 
 ## 📂 Estrutura do Repositório
-- Cada problema está separado em um arquivo conforme a numeração do LeetCode.
+- Cada problema está separado em um arquivo conforme a numeração do LeetCode ([Número]_[Nome]).
 - As soluções podem estar em **[linguagens Python, C#, JavaScript]** (Porém 99% são em Python).
 - Incluo comentários e, sempre que possível:
   - Explicação da lógica utilizada
