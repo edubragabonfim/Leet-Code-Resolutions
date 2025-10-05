@@ -39,34 +39,34 @@ class BinaryTree:
         else:
             return self._search_recursive(node.right, data)
         
-    def preorder_transversal(self):  # Root é o primeiro elemento do array
+    def preorder_traversal(self):  # Root é o primeiro elemento do array
         result = []
-        self._preorder_transversal_recursive(self.root, result)
+        self._preorder_traversal_recursive(self.root, result)
         return result
     
-    def _preorder_transversal_recursive(self, node, result):
+    def _preorder_traversal_recursive(self, node, result):
         if node:
             result.append(node.data)
             self._preorder_transversal_recursive(node.left, result)
             self._preorder_transversal_recursive(node.right, result)
 
-    def inorder_transversal(self):  # Root é o elemento do meio do array
+    def inorder_traversal(self):  # Root é o elemento do meio do array
         result = []
-        self._inorder_transversal_recursive(self.root, result)
+        self._inorder_traversal_recursive(self.root, result)
         return result
     
-    def _inorder_transversal_recursive(self, node, result):
+    def _inorder_traversal_recursive(self, node, result):
         if node:
             self._inorder_transversal_recursive(node.left, result)
             result.append(node.data)
             self._inorder_transversal_recursive(node.right, result)
 
-    def postorder_transversal(self):  # Root é o último elemento do array
+    def postorder_traversal(self):  # Root é o último elemento do array
         result = []
-        self._postorder_transversal_recursive(self.root, result)
+        self._postorder_traversal_recursive(self.root, result)
         return result
     
-    def _postorder_transversal_recursive(self, node, result):
+    def _postorder_traversal_recursive(self, node, result):
         if node:
             self._postorder_transversal_recursive(node.left, result)
             self._postorder_transversal_recursive(node.right, result)
@@ -86,6 +86,6 @@ bt.insert(7)
 print(bt.search(5))
 print(bt.search(12))
 
-print(f'preorder_transversal: {bt.preorder_transversal()}')
-print(f'inorder_transversal: {bt.inorder_transversal()}')
-print(f'postorder_transversal: {bt.postorder_transversal()}')
+print(f'preorder_transversal: {bt.preorder_traversal()}')
+print(f'inorder_transversal: {bt.inorder_traversal()}')
+print(f'postorder_transversal: {bt.postorder_traversal()}')
