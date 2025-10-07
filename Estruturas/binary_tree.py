@@ -3,16 +3,19 @@ class Node:
         self.data = data
         self.left = None
         self.right = None
-    
+
+
 class BinaryTree:
     def __init__(self) -> None:
         self.root = None
+
 
     def insert(self, data):
         if self.root is None:
             self.root = Node(data)
         else:
             self._insert_recursive(data, self.root)
+
 
     def _insert_recursive(self, data, node):
         if data < node.data:
@@ -26,9 +29,11 @@ class BinaryTree:
             else:
                 self._insert_recursive(data, node.right)
 
+
     def search(self, data):
         return self._search_recursive(self.root, data)
     
+
     def _search_recursive(self, node, data):
         if node is None:
             return False
@@ -38,41 +43,46 @@ class BinaryTree:
             return self._search_recursive(node.left, data)
         else:
             return self._search_recursive(node.right, data)
-        
+
+
     def preorder_traversal(self):  # Root é o primeiro elemento do array
         result = []
         self._preorder_traversal_recursive(self.root, result)
         return result
     
+
     def _preorder_traversal_recursive(self, node, result):
         if node:
             result.append(node.data)
             self._preorder_transversal_recursive(node.left, result)
             self._preorder_transversal_recursive(node.right, result)
 
+
     def inorder_traversal(self):  # Root é o elemento do meio do array
         result = []
         self._inorder_traversal_recursive(self.root, result)
         return result
     
+
     def _inorder_traversal_recursive(self, node, result):
         if node:
             self._inorder_transversal_recursive(node.left, result)
             result.append(node.data)
             self._inorder_transversal_recursive(node.right, result)
 
+
     def postorder_traversal(self):  # Root é o último elemento do array
         result = []
         self._postorder_traversal_recursive(self.root, result)
         return result
     
+
     def _postorder_traversal_recursive(self, node, result):
         if node:
             self._postorder_transversal_recursive(node.left, result)
             self._postorder_transversal_recursive(node.right, result)
             result.append(node.data)
-    
-            
+
 
 bt = BinaryTree()
 
