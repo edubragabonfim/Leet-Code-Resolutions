@@ -45,6 +45,25 @@ class BinaryTree:
             return self._search_recursive(node.right, data)
 
 
+    def dfs(self, data):
+        return self._dfs_recursive(self.root, data)
+    
+
+    def _dfs_recursive(self, node, data):
+        # if node:
+        #     print(node.data)
+
+        if node is None:
+            return False
+        if node.data == data:
+            return True
+        
+        if self._dfs_recursive(node.left, data):
+            return True
+        if self._dfs_recursive(node.right, data):
+            return True
+
+
     def preorder_traversal(self):  # Root é o primeiro elemento do array
         result = []
         self._preorder_traversal_recursive(self.root, result)
@@ -54,8 +73,8 @@ class BinaryTree:
     def _preorder_traversal_recursive(self, node, result):
         if node:
             result.append(node.data)
-            self._preorder_transversal_recursive(node.left, result)
-            self._preorder_transversal_recursive(node.right, result)
+            self._preorder_traversal_recursive(node.left, result)
+            self._preorder_traversal_recursive(node.right, result)
 
 
     def inorder_traversal(self):  # Root é o elemento do meio do array
@@ -66,9 +85,9 @@ class BinaryTree:
 
     def _inorder_traversal_recursive(self, node, result):
         if node:
-            self._inorder_transversal_recursive(node.left, result)
+            self._inorder_traversal_recursive(node.left, result)
             result.append(node.data)
-            self._inorder_transversal_recursive(node.right, result)
+            self._inorder_traversal_recursive(node.right, result)
 
 
     def postorder_traversal(self):  # Root é o último elemento do array
@@ -79,8 +98,8 @@ class BinaryTree:
 
     def _postorder_traversal_recursive(self, node, result):
         if node:
-            self._postorder_transversal_recursive(node.left, result)
-            self._postorder_transversal_recursive(node.right, result)
+            self._postorder_traversal_recursive(node.left, result)
+            self._postorder_traversal_recursive(node.right, result)
             result.append(node.data)
 
 
@@ -92,6 +111,7 @@ bt.insert(1)
 bt.insert(10)
 bt.insert(15)
 bt.insert(7)
+bt.insert(20)
 
 print(bt.search(5))
 print(bt.search(12))
@@ -99,3 +119,4 @@ print(bt.search(12))
 print(f'preorder_transversal: {bt.preorder_traversal()}')
 print(f'inorder_transversal: {bt.inorder_traversal()}')
 print(f'postorder_transversal: {bt.postorder_traversal()}')
+print(f'dfs: {bt.dfs(20)}')
