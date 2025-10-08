@@ -1,3 +1,6 @@
+from collections import deque
+
+
 class Node:
     def __init__(self, data) -> None:
         self.data = data
@@ -64,6 +67,27 @@ class BinaryTree:
             return True
 
 
+    def bfs(self, data):
+        if self.root is None:
+            return False
+        
+        queue = deque()
+        queue.append(self.root)
+
+        while queue:
+            node = queue.popleft()
+            if node.data == data:
+                return True
+
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+        
+        return False
+
+
+
     def preorder_traversal(self):  # Root é o primeiro elemento do array
         result = []
         self._preorder_traversal_recursive(self.root, result)
@@ -120,3 +144,4 @@ print(f'preorder_transversal: {bt.preorder_traversal()}')
 print(f'inorder_transversal: {bt.inorder_traversal()}')
 print(f'postorder_transversal: {bt.postorder_traversal()}')
 print(f'dfs: {bt.dfs(20)}')
+print(f'bfs: {bt.bfs(19)}')
